@@ -1,0 +1,49 @@
+******Setting up proxy for yum**********
+edit /etc/yum.conf
+insert 
+proxy=http://mycache.mydomain.com:3128
+# The account details for yum connections
+proxy_username=yum-user
+proxy_password=qwerty
+****************************************
+******setting up proxy for wget********
+edit /etc/wgetrc/
+
+http_proxy=http://10.135.0.29:8080
+https_proxy=http://10.135.0.29:8080
+proxy_user=akhan
+proxy_password=NewDay!2345
+
+*************user RPM with proxy******************
+rpm --httpproxy http://10.135.0.29 --httpport 8080 -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+****************************************
+***enable Ports on Centos/RHEL**********
+sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+sudo firewall-cmd --reload
+firewall-cmd --permanent --zone=public --add-service=http
+firewall-cmd --list-all
+*********************************************
+
+/etc/httpd/conf.d/nagios.conf /etc/apache2/sites-enabled/nagios.conf; \
+
+
+*************************File editor Note*******************
+replacing a string in a file globally
+sed -i 's/original/new/g' file_name
+
+in vim edit :%s/old/new/
+
+
+*************************************Downloading Sonar Report*******************
+dependency>
+    <groupId>org.codehaus.sonar-plugins.pdf-report</groupId>
+    <artifactId>sonar-pdfreport-plugin</artifactId>
+    <version>1.3.1</version>
+</dependency>
+
+mvn sonar:sonar
+
+http://104.154.18.173:8081/repository/maven-releases/
+
+mvn -X -e deploy:deploy-file "-DgeneratePom=true" "-Durl=http://104.154.18.173:8081/repository/maven-releases/" "-DrepositoryId=maven-releases" "-DgroupId=com.study.ebooks" "-DartifactId=ebook" "-Dversion=1.0.0" "-Dfile=D:\Adnan\ebooks.zip"

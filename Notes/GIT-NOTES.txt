@@ -1,0 +1,8 @@
+####global configuration for user name and email and the core editor
+
+git config --global user.name <NAME>
+git config --global user.email <email>
+git config --global core.editor vi or <choice of editor>
+
+##To list the global settings 
+git config --list
