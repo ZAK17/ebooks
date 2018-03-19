@@ -18,6 +18,10 @@ proxy_password=NewDay!2345
 rpm --httpproxy http://10.135.0.29 --httpport 8080 -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 ****************************************
+To check which yum package contains/ provides a specific library.
+
+yum provides <library>
+
 ***enable Ports on Centos/RHEL**********
 sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
 sudo firewall-cmd --reload
