@@ -27,6 +27,9 @@ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
 sudo firewall-cmd --reload
 firewall-cmd --permanent --zone=public --add-service=http
 firewall-cmd --list-all
+
+iptables -I INPUT -p tcp -s 0.0.0.0/0 --dport 8080 -j ACCEPT
+iptables --list
 *********************************************
 
 /etc/httpd/conf.d/nagios.conf /etc/apache2/sites-enabled/nagios.conf; \
